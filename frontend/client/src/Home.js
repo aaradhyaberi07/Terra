@@ -17,6 +17,7 @@ import Log from "./components/temp/login";
 import Profile from "./components/temp/profile";
 import AddProductFarmer from "./components/supplychainComponents/AddProductFarmer";
 import ViewProductsToBuy from "./components/supplychainComponents/ViewProductsToBuy";
+import ViewUserProducts from "./components/supplychainComponents/ViewUserProducts";
 
 function Home() {
   function RequireAuth({ children }) {
@@ -77,6 +78,14 @@ function Home() {
             element={
               <RequireSupplyChain>
                 <ViewProductsToBuy />
+              </RequireSupplyChain>
+            }
+          />
+          <Route
+            path="/productview"
+            element={
+              <RequireSupplyChain>
+                <ViewUserProducts />
               </RequireSupplyChain>
             }
           />
