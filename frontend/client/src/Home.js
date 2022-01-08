@@ -66,6 +66,34 @@ function Home() {
     return children;
   }
 
+  function RequireSupplyChain({ children }) {
+    const data = JSON.parse(localStorage.getItem("creds"));
+    if (!data) {
+      alert("You must login to view this page");
+      return <Navigate to="/login" />;
+    }
+    if (
+      data.type != "F" ||
+      data.type != "D" ||
+      data.type != "C" ||
+      data.type != "R"
+    ) {
+      alert("You must be a part of the supply chain to view this page");
+      return <Navigate to="/" />;
+    }
+    return children;
+  }
+
+  function Logout() {
+    const data = JSON.parse(localStorage.getItem("creds"));
+    if (!data) {
+      alert("You must login first to logout");
+      return (window.location = "/login");
+    }
+    localStorage.removeItem("creds");
+    return (window.location = "/");
+  }
+
   return (
     <div>
       <Router>
@@ -75,6 +103,7 @@ function Home() {
           <Route path="/login" element={<Log />} />
           <Route path="/register" element={<Reg />} />
           <Route path="/buy" element={<BuyCoin />} />
+          <Route path="/notifs" element={<Listen />} />
 
           <Route
             path="/profile"
@@ -142,6 +171,13 @@ function Home() {
               </RequireInsurance>
             }
           />
+
+          <Route>
+            <Route path="/view" element={<View />} />
+          </Route>
+          <Route>
+            <Route path="/viewsupply" element={<ViewSupply />} />
+          </Route>
 
           <Route
             path="/admin/notif"
