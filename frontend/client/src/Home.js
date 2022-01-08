@@ -15,7 +15,12 @@ import LandingPage from "./components/LandingPage";
 import Reg from "./components/temp/register";
 import Log from "./components/temp/login";
 import Profile from "./components/temp/profile";
+
+import FarmerHome from "./components/farmerComponents/FarmerHome";
 import AddProductFarmer from "./components/supplychainComponents/AddProductFarmer";
+import FarmerClaim from "./components/farmerComponents/FarmerClaim";
+import ClaimsFarmer from "./components/farmerComponents/claims";
+
 import ViewProductsToBuy from "./components/supplychainComponents/ViewProductsToBuy";
 import ViewUserProducts from "./components/supplychainComponents/ViewUserProducts";
 
