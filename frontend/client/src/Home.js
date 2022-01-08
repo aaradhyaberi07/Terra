@@ -26,6 +26,8 @@ import ViewUserProducts from "./components/supplychainComponents/ViewUserProduct
 
 import Insurance_Provider from "./components/insuranceComponents/insurance_sign.js";
 
+import AdminNotif from "./components/adminComponents/AdminNotif";
+
 function Home() {
   function RequireAuth({ children }) {
     const data = JSON.parse(localStorage.getItem("creds"));
@@ -134,6 +136,15 @@ function Home() {
               <RequireInsurance>
                 <Insurance_Provider />
               </RequireInsurance>
+            }
+          />
+
+          <Route
+            path="/admin/notif"
+            element={
+              <RequireAdmin>
+                <AdminNotif />
+              </RequireAdmin>
             }
           />
         </Routes>
