@@ -16,6 +16,8 @@ import Reg from "./components/temp/register";
 import Log from "./components/temp/login";
 import Profile from "./components/temp/profile";
 
+import BuyCoin from "./components/BuyCoin/BuyCoin.js";
+
 import FarmerHome from "./components/farmerComponents/FarmerHome";
 import AddProductFarmer from "./components/supplychainComponents/AddProductFarmer";
 import FarmerClaim from "./components/farmerComponents/FarmerClaim";
@@ -72,6 +74,8 @@ function Home() {
 
           <Route path="/login" element={<Log />} />
           <Route path="/register" element={<Reg />} />
+          <Route path="/buy" element={<BuyCoin />} />
+
           <Route
             path="/profile"
             element={

@@ -1,0 +1,43 @@
+.coin {
+  margin-top: 5%;
+  height: 30%;
+  width: 20%;
+  margin-left: 20%;
+  display: block;
+  float: left;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
+  margin-top: 5%;
+  margin-left: 38%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  margin-top: 10%;
+  margin-left: 55%;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.balance {
+  font-size: 30px;
+}
+
+.ButtonStyle1 {
+  background: linear-gradient(
+    63.31deg,
+    #00dc07 -9.99%,
+    #43ff06 -9.98%,
+    rgba(3, 195, 255, 0.23) 131.09%
+  );
+  font-weight: 500;
+  font-size: 1.5rem !important;
+  color: white;
+  transition: box-shadow 0.2s ease-out !important;
+  padding: 0rem 3.5rem !important;
+}
