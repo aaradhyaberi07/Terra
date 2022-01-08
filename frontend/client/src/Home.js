@@ -71,6 +71,24 @@ function Home() {
               </RequireFarmer>
             }
           />
+
+          <Route
+            path="/farmer/claim"
+            element={
+              <RequireFarmer>
+                <FarmerClaim />
+              </RequireFarmer>
+            }
+          />
+
+          <Route
+            path="/farmer/list"
+            element={
+              <RequireFarmer>
+                <ClaimsFarmer />
+              </RequireFarmer>
+            }
+          />
         </Routes>
       </Router>
     </div>
