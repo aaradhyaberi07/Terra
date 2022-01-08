@@ -15,6 +15,7 @@ import LandingPage from "./components/LandingPage";
 import Reg from "./components/temp/register";
 import Log from "./components/temp/login";
 import Profile from "./components/temp/profile";
+import AddProductFarmer from "./components/supplychainComponents/AddProductFarmer";
 
 function Home() {
   function RequireAuth({ children }) {
@@ -39,6 +40,14 @@ function Home() {
               <RequireAuth>
                 <Profile />
               </RequireAuth>
+            }
+          />
+          <Route
+            path="/farmer/addproduct"
+            element={
+              <RequireFarmer>
+                <AddProductFarmer />
+              </RequireFarmer>
             }
           />
         </Routes>
