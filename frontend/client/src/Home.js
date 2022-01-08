@@ -24,6 +24,8 @@ import ClaimsFarmer from "./components/farmerComponents/claims";
 import ViewProductsToBuy from "./components/supplychainComponents/ViewProductsToBuy";
 import ViewUserProducts from "./components/supplychainComponents/ViewUserProducts";
 
+import Insurance_Provider from "./components/insuranceComponents/insurance_sign.js";
+
 function Home() {
   function RequireAuth({ children }) {
     const data = JSON.parse(localStorage.getItem("creds"));
@@ -46,6 +48,20 @@ function Home() {
     }
     return children;
   }
+
+  function RequireInsurance({ children }) {
+    const data = JSON.parse(localStorage.getItem("creds"));
+    if (!data) {
+      alert("You must login to view this page");
+      return <Navigate to="/login" />;
+    }
+    if (data.type != "I") {
+      alert("You must be an insurance provider to view this page");
+      return <Navigate to="/" />;
+    }
+    return children;
+  }
+
   return (
     <div>
       <Router>
@@ -109,6 +125,15 @@ function Home() {
               <RequireSupplyChain>
                 <ViewUserProducts />
               </RequireSupplyChain>
+            }
+          />
+
+          <Route
+            path="/provider"
+            element={
+              <RequireInsurance>
+                <Insurance_Provider />
+              </RequireInsurance>
             }
           />
         </Routes>
