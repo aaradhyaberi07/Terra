@@ -26,6 +26,19 @@ function Home() {
     alert("You must login to view this page");
     return <Navigate to="/login" />;
   }
+
+  function RequireFarmer({ children }) {
+    const data = JSON.parse(localStorage.getItem("creds"));
+    if (!data) {
+      alert("You must login to view this page");
+      return <Navigate to="/login" />;
+    }
+    if (data.type != "F") {
+      alert("You must be a farmer to view this page");
+      return <Navigate to="/" />;
+    }
+    return children;
+  }
   return (
     <div>
       <Router>
@@ -40,6 +53,14 @@ function Home() {
               <RequireAuth>
                 <Profile />
               </RequireAuth>
+            }
+          />
+          <Route
+            path="/farmer/home"
+            element={
+              <RequireFarmer>
+                <FarmerHome />
+              </RequireFarmer>
             }
           />
           <Route
