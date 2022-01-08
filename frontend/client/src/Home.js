@@ -16,6 +16,8 @@ import Reg from "./components/temp/register";
 import Log from "./components/temp/login";
 import Profile from "./components/temp/profile";
 import AddProductFarmer from "./components/supplychainComponents/AddProductFarmer";
+import ViewProductsToBuy from "./components/supplychainComponents/ViewProductsToBuy";
+import ViewUserProducts from "./components/supplychainComponents/ViewUserProducts";
 
 function Home() {
   function RequireAuth({ children }) {
@@ -71,7 +73,14 @@ function Home() {
               </RequireFarmer>
             }
           />
-
+          <Route
+            path="/farmer/list"
+            element={
+              <RequireFarmer>
+                <ClaimsFarmer />
+              </RequireFarmer>
+            }
+          />
           <Route
             path="/farmer/claim"
             element={
@@ -82,11 +91,19 @@ function Home() {
           />
 
           <Route
-            path="/farmer/list"
+            path="/buyproduct"
             element={
-              <RequireFarmer>
-                <ClaimsFarmer />
-              </RequireFarmer>
+              <RequireSupplyChain>
+                <ViewProductsToBuy />
+              </RequireSupplyChain>
+            }
+          />
+          <Route
+            path="/productview"
+            element={
+              <RequireSupplyChain>
+                <ViewUserProducts />
+              </RequireSupplyChain>
             }
           />
         </Routes>
